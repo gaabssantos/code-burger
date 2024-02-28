@@ -5,6 +5,7 @@ import { toast } from 'react-toastify'
 import * as Yup from 'yup'
 
 import { BurgerLogo, Button } from '../../components/'
+import paths from '../../constants/paths'
 import { useUser } from '../../hooks/UserContext'
 import api from '../../services/api'
 import {
@@ -55,9 +56,9 @@ export const Login = () => {
         toast.success('Logado com sucesso')
         setTimeout(() => {
           if (data.admin) {
-            history.push('/pedidos')
+            history.push(paths.Order)
           } else {
-            history.push('/')
+            history.push(paths.Home)
           }
         }, 1000)
       } else if (status === 401) {
@@ -107,7 +108,7 @@ export const Login = () => {
         </Label>
         <SignUp>
           <SignUpTitle>Não tem uma conta?</SignUpTitle>
-          <Link to={'/register'}>Registrar</Link>
+          <Link to={paths.Register}>Registrar</Link>
         </SignUp>
       </BurgerLogo>
     </>

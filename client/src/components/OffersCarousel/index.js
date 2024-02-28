@@ -3,6 +3,7 @@ import Carousel from 'react-elastic-carousel'
 import { useHistory } from 'react-router-dom'
 
 import Offers from '../../assets/offers.png'
+import paths from '../../constants/paths'
 import { useCart } from '../../hooks/CartContext'
 import api from '../../services/api'
 import { formatCurrency } from '../../utils/NumberFormat'
@@ -62,7 +63,7 @@ export const OffersCarousel = () => {
             <Button
               onClick={() => {
                 putProductInCart(product)
-                push('/carrinho')
+                push(paths.Cart)
               }}
             >
               Peça agora

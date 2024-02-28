@@ -3,6 +3,7 @@ import { Link, useHistory } from 'react-router-dom'
 
 import Cart from '../../assets/cart.svg'
 import Person from '../../assets/person.svg'
+import paths from '../../constants/paths'
 import { useUser } from '../../hooks/UserContext'
 import { Container, Links, Line, Informations } from './styles'
 
@@ -13,7 +14,7 @@ export const Header = ({ page }) => {
   return (
     <Container>
       <Links>
-        <Link style={{ color: page === 'home' && '#9758A6' }} to="/">
+        <Link style={{ color: page === 'home' && '#9758A6' }} to={paths.Home}>
           Home
         </Link>
         <Link
@@ -34,7 +35,7 @@ export const Header = ({ page }) => {
         <img style={{ marginRight: '15px' }} src={Person} alt="Pessoa" />
         <div>
           <p>Olá, {userData.name}</p>
-          <Link to="/" className="logout" onClick={logoutUser}>
+          <Link to={paths.Home} className="logout" onClick={logoutUser}>
             Sair
           </Link>
         </div>

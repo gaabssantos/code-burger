@@ -18,6 +18,7 @@ import {
   SignUpTitle,
   SignUpLink
 } from './styles'
+import paths from '../../constants/paths'
 
 export const Register = () => {
   const schema = Yup.object().shape({
@@ -128,7 +129,7 @@ export const Register = () => {
         </Terms>
         <SignUp>
           <SignUpTitle>Ja tem uma conta?</SignUpTitle>
-          <Link to={'/login'}>
+          <Link to={paths.Login}>
             <SignUpLink>Logar</SignUpLink>
           </Link>
         </SignUp>
