@@ -16,7 +16,7 @@ import { formatCurrency } from '../../../utils/NumberFormat'
 import { Container, Image, EditButton } from './styles'
 
 const ListProducts = () => {
-  const [products, setProducts] = useState([])
+  const [products, setProducts] = useState()
 
   const [nameSort, setNameSort] = useState(false)
   const [priceSort, setPriceSort] = useState(false)
@@ -127,30 +127,31 @@ const ListProducts = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {products.map(product => (
-              <TableRow
-                key={product.name}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {product.name}
-                </TableCell>
-                <TableCell>{formatCurrency(product.price)}</TableCell>
-                <TableCell align="center">
-                  {product.offer ? (
-                    <CheckIcon style={{ color: 'green' }} />
-                  ) : (
-                    <ClearIcon style={{ color: 'red' }} />
-                  )}
-                </TableCell>
-                <TableCell>
-                  <Image src={product.url} alt="Imagem do produto"></Image>
-                </TableCell>
-                <TableCell>
-                  <EditButton />
-                </TableCell>
-              </TableRow>
-            ))}
+            {products &&
+              products.map(product => (
+                <TableRow
+                  key={product.name}
+                  sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    {product.name}
+                  </TableCell>
+                  <TableCell>{formatCurrency(product.price)}</TableCell>
+                  <TableCell align="center">
+                    {product.offer ? (
+                      <CheckIcon style={{ color: 'green' }} />
+                    ) : (
+                      <ClearIcon style={{ color: 'red' }} />
+                    )}
+                  </TableCell>
+                  <TableCell>
+                    <Image src={product.url} alt="Imagem do produto"></Image>
+                  </TableCell>
+                  <TableCell>
+                    <EditButton />
+                  </TableCell>
+                </TableRow>
+              ))}
           </TableBody>
         </Table>
       </TableContainer>

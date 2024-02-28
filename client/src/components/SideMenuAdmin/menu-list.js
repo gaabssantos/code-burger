@@ -1,3 +1,4 @@
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart'
 
@@ -13,8 +14,14 @@ const list = [
   {
     id: 2,
     label: 'Listar Produtos',
-    link: paths.Products,
+    link: paths.ProductsAdmin,
     icon: ShoppingCartIcon
+  },
+  {
+    id: 3,
+    label: 'Novo produto',
+    link: paths.NewProduct,
+    icon: AddShoppingCartIcon
   }
 ]
 
