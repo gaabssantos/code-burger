@@ -1,12 +1,16 @@
 import { SideMenuAdmin } from '../../components/SideMenuAdmin'
+import ListProducts from './ListProducts'
 import Orders from './Orders'
-import { Container } from './styles'
+import { Container, ContainerItems } from './styles'
 
 export const Admin = () => {
   return (
     <Container>
       <SideMenuAdmin />
-      <Orders />
+      <ContainerItems>
+        {/* <Orders /> */}
+        <ListProducts />
+      </ContainerItems>
     </Container>
   )
 }
