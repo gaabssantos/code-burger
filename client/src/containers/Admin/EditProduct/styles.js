@@ -54,3 +54,15 @@ export const LabelUpload = styled.label`
 export const FormController = styled.div`
   margin-bottom: 25px;
 `
+
+export const ContainerInput = styled.div`
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+
+  input {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+  }
+`

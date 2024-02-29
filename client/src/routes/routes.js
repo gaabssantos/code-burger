@@ -30,6 +30,11 @@ function Routes() {
           path={paths.NewProduct}
           isAdmin
         ></PrivateRoute>
+        <PrivateRoute
+          component={Admin}
+          path={paths.EditProduct}
+          isAdmin
+        ></PrivateRoute>
       </Switch>
     </Router>
   )

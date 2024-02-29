@@ -10,7 +10,9 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import { useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
+import paths from '../../../constants/paths'
 import api from '../../../services/api'
 import { formatCurrency } from '../../../utils/NumberFormat'
 import { Container, Image, EditButton } from './styles'
@@ -21,6 +23,8 @@ const ListProducts = () => {
   const [nameSort, setNameSort] = useState(false)
   const [priceSort, setPriceSort] = useState(false)
   const [offerSort, setOfferSort] = useState(false)
+
+  const { push } = useHistory()
 
   useEffect(() => {
     async function fetchOrders() {
@@ -98,6 +102,10 @@ const ListProducts = () => {
     }
   }
 
+  const editProduct = product => {
+    push(paths.EditProduct, { product })
+  }
+
   return (
     <Container>
       <TableContainer component={Paper}>
@@ -148,7 +156,7 @@ const ListProducts = () => {
                     <Image src={product.url} alt="Imagem do produto"></Image>
                   </TableCell>
                   <TableCell>
-                    <EditButton />
+                    <EditButton onClick={() => editProduct(product)} />
                   </TableCell>
                 </TableRow>
               ))}

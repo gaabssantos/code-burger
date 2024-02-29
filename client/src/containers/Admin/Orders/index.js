@@ -75,7 +75,7 @@ const Orders = () => {
             <LinkMenu
               key={status.id}
               onClick={() => handleStatus(status)}
-              isActiveStatus={activeStatus === status.id}
+              $isactivestatus={activeStatus === status.id}
             >
               {status.label}
             </LinkMenu>

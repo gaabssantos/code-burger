@@ -13,16 +13,13 @@ export const SideMenuAdmin = ({ path }) => {
     <Container>
       <hr />
       {list.map(lst => (
-        <ItemContainer key={lst.id} isActive={path === lst.link}>
+        <ItemContainer key={lst.id} $isactive={path === lst.link}>
           <lst.icon className="icon" />
           <ListLink to={lst.link}>{lst.label}</ListLink>
         </ItemContainer>
       ))}
       <hr />
-      <ItemContainer
-        style={{ position: 'absolute', bottom: '30px' }}
-        isActive={false}
-      >
+      <ItemContainer style={{ position: 'fixed', bottom: '30px' }}>
         <LogoutIcon style={{ color: '#fff' }} />
         <ListLink to={paths.Login} onClick={logoutUser}>
           Sair

@@ -15,28 +15,25 @@ import {
   Input,
   ButtonStyles,
   LabelUpload,
-  FormController
+  FormController,
+  ContainerInput
 } from './styles'
 
-const NewProduct = () => {
+const EditProduct = () => {
   const [fileName, setFileName] = useState('')
 
-  const { push } = useHistory()
+  const {
+    push,
+    location: {
+      state: { product }
+    }
+  } = useHistory()
 
   const scheme = Yup.object().shape({
     name: Yup.string().required('O nome é obrigatório'),
     price: Yup.string().required('O preço é obrigatório'),
     category: Yup.object().required('A categoria é obrigatória'),
-    file: Yup.mixed()
-      .test('required', 'A imagem é obrigatória', value => {
-        return value?.length > 0
-      })
-      .test('fileSize', 'Carregue arquivos de até 2mb', value => {
-        return value[0]?.size <= 2000000
-      })
-      .test('type', 'Carregue apenas arquivos PNG e JPEG.', value => {
-        return value[0]?.type === 'image/png' || value[0]?.type === 'image/jpeg'
-      })
+    offer: Yup.bool()
   })
 
   const {
@@ -57,10 +54,11 @@ const NewProduct = () => {
     productDataFormData.append('price', data.price)
     productDataFormData.append('category_id', data.category.id)
     productDataFormData.append('file', data.file[0])
+    productDataFormData.append('offer', data.offer)
 
     try {
-      await api.post('products', productDataFormData)
-      toast.success('Produto foi gravado com sucesso.')
+      await api.put(`products/${product.id}`, productDataFormData)
+      toast.success('Produto foi editado com sucesso.')
 
       setTimeout(() => {
         push(paths.ProductsAdmin)
@@ -85,7 +83,11 @@ const NewProduct = () => {
       <form noValidate onSubmit={handleSubmit(onSubmit)}>
         <FormController>
           <Label>Nome</Label>
-          <Input type="text" {...register('name')} />
+          <Input
+            type="text"
+            {...register('name')}
+            defaultValue={product.name}
+          />
           <p style={{ color: 'red', marginTop: '5px' }}>
             {errors.name?.message}
           </p>
@@ -93,7 +95,11 @@ const NewProduct = () => {
 
         <FormController>
           <Label>Preço</Label>
-          <Input type="number" {...register('price')} />
+          <Input
+            type="number"
+            {...register('price')}
+            defaultValue={product.price}
+          />
           <p style={{ color: 'red', marginTop: '5px' }}>
             {errors.price?.message}
           </p>
@@ -124,6 +130,7 @@ const NewProduct = () => {
         <Controller
           name="category"
           control={control}
+          defaultValue={product.category}
           render={({ field }) => {
             return (
               <ReactSelect
@@ -132,6 +139,7 @@ const NewProduct = () => {
                 getOptionLabel={cat => cat.name}
                 getOptionValue={cat => cat.id}
                 placeholder="Categorias"
+                defaultValue={product.category}
               />
             )
           }}
@@ -140,10 +148,18 @@ const NewProduct = () => {
           {errors.category?.message}
         </p>
 
-        <ButtonStyles>Adicionar produto</ButtonStyles>
+        <ContainerInput>
+          <Label>Produto em oferta?</Label>
+          <input
+            type="checkbox"
+            {...register('offer')}
+            defaultChecked={product.offer}
+          />
+        </ContainerInput>
+        <ButtonStyles>Editar produto</ButtonStyles>
       </form>
     </Container>
   )
 }
 
-export default NewProduct
+export default EditProduct

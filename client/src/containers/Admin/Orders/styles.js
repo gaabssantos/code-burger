@@ -31,6 +31,7 @@ export const LinkMenu = styled.a`
   padding-bottom: 10px;
   width: 130px;
   text-align: center;
-  font-weight: ${props => (props.isActiveStatus ? 'bold' : '400')};
-  border-bottom: ${props => props.isActiveStatus && '3px solid #9758A6'};
+  font-weight: ${({ $isactivestatus }) => ($isactivestatus ? 'bold' : '400')};
+  border-bottom: ${({ $isactivestatus }) =>
+    $isactivestatus && '3px solid #9758A6'};
 `
