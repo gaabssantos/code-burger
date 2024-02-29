@@ -6,7 +6,7 @@ import routes from "./routes";
 import "./database";
 
 const corsOptions = {
-  origin: "https://code-burger-six.vercel.app/",
+  origin: "https://code-burger-six.vercel.app",
   credentials: true,
 };
 
