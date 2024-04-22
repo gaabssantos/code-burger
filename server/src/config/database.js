@@ -1,6 +1,6 @@
 module.exports = {
   dialect: "postgres",
-  url: "postgresql://postgres:-*gfFcdfEaCFDBb2cEB*d*EFdFEDeDaG@viaduct.proxy.rlwy.net:29795/railway",
+  url: "postgresql://codeburger_owner:DEz7Wnqe6dsV@ep-odd-lake-a5s2jiol.us-east-2.aws.neon.tech/codeburger?sslmode=require",
   define: {
     timestamps: true,
     underscored: true,
