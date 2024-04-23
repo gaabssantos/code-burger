@@ -1,6 +1,6 @@
 module.exports = {
   dialect: "postgres",
-  url: "postgresql://codeburger_owner:DEz7Wnqe6dsV@ep-odd-lake-a5s2jiol.us-east-2.aws.neon.tech/codeburger?sslmode=require",
+  url: "postgres://default:2SUXOjyD9fYs@ep-young-breeze-a4sj44s4.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
   define: {
     timestamps: true,
     underscored: true,
