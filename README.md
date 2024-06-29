@@ -1,6 +1,6 @@
-<h1>Instagram Clone</h1>
+<h1>Code Burger</h1>
 
-<p>Um site que simula as postagens do Instagram, através da API do Pexels.</p>
+<p>Um site que simula um sistema de uma hamburgueria, incluindo pedidos, categorias, dashboard administrativo, etc...</p>
 
 <h2>🖥️ Stacks</h2>
 
