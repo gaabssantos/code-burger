@@ -31,5 +31,3 @@
   <li>UUID</li>
   <li>Yup</li>
 </ul>
-
-<hr>
