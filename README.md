@@ -1,10 +1,8 @@
-<h1>Code Burger</h1>
+<h1>📝 Introdução</h1>
 
-<p>Um site que simula um sistema de uma hamburgueria, incluindo pedidos, categorias, dashboard administrativo, etc...</p>
+<p>Projeto de sistema digital para uma hamburgueria, com funcionalidades de criação de pedidos, organização de categorias de produtos e um painel administrativo intuitivo. A plataforma permite aos clientes montar pedidos personalizados, explorar o menu completo e acompanhar o status dos pedidos em tempo real. No painel administrativo, é possível gerenciar cardápio, estoque e visualizar relatórios de vendas, otimizando a operação e o atendimento ao cliente.</p>
 
-<h2>🖥️ Stacks</h2>
-
-<h3>Front</h3>
+<h1>🖥️ Tecnologias</h1>
 
 <ul>
   <li>React</li>
@@ -16,11 +14,6 @@
   <li>React Toastify</li>
   <li>Styled Components</li>
   <li>Yup</li>
-</ul>
-
-<h3>Back</h3>
-
-<ul>
   <li>Node</li>
   <li>Express</li>
   <li>JSONWebToken</li>
@@ -29,5 +22,9 @@
   <li>Multer</li>
   <li>Sequelize</li>
   <li>UUID</li>
-  <li>Yup</li>
 </ul>
+
+<h1>🖼️ Imagens</h1>
+
+![image](https://github.com/user-attachments/assets/fb94abec-409d-4fd2-9a2f-6f8890f5578b)
+![image](https://github.com/user-attachments/assets/d6694849-8b2e-428a-bdce-e6b53478c4c4)
